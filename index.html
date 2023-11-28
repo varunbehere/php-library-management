@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Library Management System</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="script.js"></script>
+    <script>
+        // JavaScript code to display an alert message
+        var resultMessage = "<?php echo isset($_SESSION['result']) ? $_SESSION['result'] : ''; ?>";
+        if (resultMessage !== '') {
+            alert(resultMessage);
+        }
+    </script>
+</head>
+<body>
+    <div class="container">
+        <h2>Library Management System</h2>
+        <form action="process.php" method="post" onsubmit="return validateForm()">
+            <label for="bookName">Book Name:</label>
+            <input type="text" name="bookName" id="bookName">
+
+            <label for="isbn">ISBN No:</label>
+            <input type="text" name="isbn" id="isbn" required>
+
+            <label for="bookTitle">Book Title:</label>
+            <input type="text" name="bookTitle" id="bookTitle">
+
+            <label for="authorName">Author Name:</label>
+            <input type="text" name="authorName" id="authorName" >
+
+            <label for="publisherName">Publisher Name:</label>
+            <input type="text" name="publisherName" id="publisherName">
+
+            <button type="submit" name="insert">Add Book</button>
+            <button type="submit" name="delete">Delete Book</button>
+            <button type="submit" name="update">Update Book</button>
+            <button type="submit" name="display">Show Books</button>
+        </form>
+        <div id="result">
+            <?php
+            session_start();
+            if (isset($_SESSION['result'])) {
+                echo $_SESSION['result'];
+                unset($_SESSION['result']);
+            }
+            ?>
+        </div>
+    </div>
+    
+</body>
+</html>
+

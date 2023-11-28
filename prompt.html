@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prompt</title>
+</head>
+<body>
+    <script>
+        // JavaScript code to display the prompt message
+        var promptMessage = "<?php echo isset($_SESSION['prompt']) ? $_SESSION['prompt'] : ''; ?>";
+        if (promptMessage !== '') {
+            alert(promptMessage);
+        }
+    </script>
+</body>
+</html>
